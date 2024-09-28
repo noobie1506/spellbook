@@ -9,7 +9,7 @@
 
 {% set project_start_date = '2022-03-14' %}
 
-WITH 
+WITH
 
 base_trades as (
 SELECT 
