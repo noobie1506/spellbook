@@ -8,10 +8,10 @@
         incremental_strategy = 'merge',
         incremental_predicates = [incremental_predicate('DBT_INTERNAL_DEST.block_time')],
         unique_key = ['tx_hash', 'evt_index', 'token_id', 'amount'],
-        post_hook='{{ expose_spells(\'["ethereum", "bnb", "avalanche_c", "gnosis", "optimism", "arbitrum", "polygon", "fantom", "goerli", "base", "celo", "zksync", "zora", "scroll", "linea", "blast", "mantle"]\',
+        post_hook='{{ expose_spells(\'["ethereum", "bnb", "avalanche_c", "gnosis", "optimism", "arbitrum", "polygon", "fantom", "goerli", "base", "celo", "zksync", "zora", "scroll", "linea", "blast", "mantle", "sei", "ronin"]\',
                                     "sector",
                                     "nft",
-                                    \'["hildobby", "0xRob", "rantum"]\') }}'
+                                    \'["hildobby", "0xRob", "rantum","petertherock"]\') }}'
 )
 }}
 
@@ -33,6 +33,8 @@
 ,ref('nft_linea_transfers')
 ,ref('nft_blast_transfers')
 ,ref('nft_mantle_transfers')
+,ref('nft_sei_transfers')
+,ref('nft_ronin_transfers')
 ] %}
 
 SELECT *

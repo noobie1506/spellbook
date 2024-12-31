@@ -94,12 +94,13 @@ models:
       tags: ["ethereum", "dex", "chain_swap", "trades"]
     description: >
       ChainSwap trades on Ethereum
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - blockchain
             - tx_hash
             - evt_index
+            - fee_token_address
     columns:
       - *blockchain
       - *block_time
@@ -136,12 +137,13 @@ models:
       tags: ["arbitrum", "dex", "chain_swap", "trades"]
     description: >
       ChainSwap trades on Arbitrum
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - blockchain
             - tx_hash
             - evt_index
+            - fee_token_address
     columns:
       - *blockchain
       - *block_time
@@ -178,12 +180,13 @@ models:
       tags: ["base", "dex", "chain_swap", "trades"]
     description: >
       ChainSwap trades on Base
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - blockchain
             - tx_hash
             - evt_index
+            - fee_token_address
     columns:
       - *blockchain
       - *block_time
@@ -220,12 +223,13 @@ models:
       tags: ["optimism", "dex", "chain_swap", "trades"]
     description: >
       ChainSwap trades on Optimism
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - blockchain
             - tx_hash
             - evt_index
+            - fee_token_address
     columns:
       - *blockchain
       - *block_time
@@ -262,12 +266,13 @@ models:
       tags: ["bnb", "dex", "chain_swap", "trades"]
     description: >
       ChainSwap trades on Bnb
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - blockchain
             - tx_hash
             - evt_index
+            - fee_token_address
     columns:
       - *blockchain
       - *block_time
@@ -304,12 +309,13 @@ models:
       tags: ["polygon", "dex", "chain_swap", "trades"]
     description: >
       ChainSwap trades on Polygon
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - blockchain
             - tx_hash
             - evt_index
+            - fee_token_address
     columns:
       - *blockchain
       - *block_time
@@ -346,12 +352,13 @@ models:
       tags: ["avalanche_c", "dex", "chain_swap", "trades"]
     description: >
       ChainSwap trades on Avalanche_c
-    tests:
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - blockchain
             - tx_hash
             - evt_index
+            - fee_token_address
 
     columns:
       - *blockchain

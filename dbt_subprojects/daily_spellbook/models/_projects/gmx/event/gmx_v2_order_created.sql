@@ -37,16 +37,19 @@ SELECT
     decrease_position_swap_type,    
     size_delta_usd,
     initial_collateral_delta_amount,
+    trigger_price,
     trigger_price_raw,
+    acceptable_price,
     acceptable_price_raw,
     execution_fee,
     callback_gas_limit,
     min_output_amount_raw, 
     updated_at_block,
     updated_at_time,
+    valid_from_time,
     is_long,
     should_unwrap_native_token,
-    is_frozen,
+    auto_cancel,
     key
 FROM {{ ref('gmx_v2_' ~ chain ~ '_order_created') }}
 {% if not loop.last %}

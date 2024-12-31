@@ -701,5 +701,20 @@ FROM
         ('nub-nubcat','solana', 'NUB', 'GtDZKAqvMZMnti46ZewMiXCa4oXF4bZxwQPoKzXPFxZn', 9),
         ('bunk-bunkee', 'solana', 'BUNK', '2nhjjqSkA8FYCUdJvQhYjbtZdPjZbNo8VtNKTkJ3hncb', 6),
         ('maneki-maneki', 'solana', 'MANEKI', '25hAyBQfoDhfWx9ay6rarbgvWGwDdNqcHsXS3jQ3mTDJ', 5),
-        ('scat-simon39s-baby-cat', 'solana', 'SCAT', '2NNkCSrbQtrc9tgEJHt4MQUH3ySaxTRAAXt9cUgCkycB', 9)
+        ('scat-simon39s-baby-cat', 'solana', 'SCAT', '2NNkCSrbQtrc9tgEJHt4MQUH3ySaxTRAAXt9cUgCkycB', 9),
+        ('wolf-landwolf-sol', 'solana', 'WOLF', 'Faf89929Ni9fbg4gmVZTca7eW6NFg877Jqn6MizT3Gvw', 8),
+        ('jason-jason-derulo', 'solana', 'JASON', '6SUryVEuDz5hqAxab6QrGfbzWvjN8dC7m29ezSvDpump', 6),
+        ('moodeng-moo-deng-moodengsolcom', 'solana', 'MOODENG', 'ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY', 6),
+        ('scf-smoking-chicken-fish', 'solana', 'SCF', 'GiG7Hr61RVm4CSUxJmgiCoySFQtdiwxtqf64MsRppump', 6),
+        ('luna-luna-by-virtuals', 'solana', 'LUNA', '9se6kma7LeGcQWyRBNcYzyxZPE3r9t9qWZ8SnjnN3jJ7', 8),
+        ('goat-goatseus-maximus', 'solana', 'GOAT', 'CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump', 6),
+        ('fwog-fwog', 'solana', 'FWOG', 'A8C3xuqscfmyLrte3VmTqrAq8kgMASius9AFNANwpump', 6),
+        ('lester-litecoin-mascot', 'solana', 'LESTER', '5z3iCe53hUANTiG8Js8RjHNE2Arjik7L2CXLyr2rpump', 6),
+        ('happy-happycat', 'solana', 'HAPPY', 'HAPPYwgFcjEJDzRtfWE6tiHE9zGdzpNky2FvjPHsvvGZ', 9),
+        ('memesai-memes-ai', 'solana', 'MEMESAI', '39qibQxVzemuZTEvjSB7NePhw9WyyHdQCqP8xmBMpump', 6),
+        ('grift1-orbit', 'solana', 'GRIFT', 'GekTNfm84QfyP2GdAHZ5AgACBRd69aNmgA5FDhZupump', 6),
+        ('fxn-fxn', 'solana', 'FXN', '92cRC6kV5D7TiHX1j56AbkPbffo9jwcXxSDQZ8Mopump',6),
+        ('griffain-test-griffaincom', 'solana', 'GRIFFAIN', 'KENJSUYLASHUMfHyy5o4Hp2FdNqZg1AsUPhfH2kYvEP', 6),
+        ('tank-agenttank', 'solana', 'TANK', 'GAMwtMB6onAvBNBQJCJFuxoaqfPH8uCQ2dewNMVVpump', 6),
+        ('pengu-pudgy-penguins', 'solana', 'PENGU', '2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv', 6)
 ) as temp (token_id, blockchain, symbol, contract_address, decimals)
