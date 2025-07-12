@@ -46,6 +46,12 @@ sources:
   - name: balancer_v3_gnosis
     tables:
       - name: trades
+  - name: balancer_v3_arbitrum
+    tables:
+      - name: trades
+  - name: balancer_v3_base
+    tables:
+      - name: trades
   - name: balancer
     tables:
       - name: trades
@@ -81,6 +87,12 @@ sources:
     tables:
       - name: trades
   - name: cow_protocol_base
+    tables:
+      - name: trades
+  - name: cow_protocol_avalanche_c
+    tables:
+      - name: trades
+  - name: cow_protocol_polygon
     tables:
       - name: trades
   - name: jelly_swap

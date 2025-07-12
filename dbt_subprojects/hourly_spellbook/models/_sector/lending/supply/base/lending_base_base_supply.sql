@@ -13,7 +13,9 @@
     ref('seamlessprotocol_base_base_supply'),
     ref('moonwell_base_base_supply'),
     ref('sonne_finance_base_base_supply'),
-    ref('granary_base_base_supply')
+    ref('granary_base_base_supply'),
+    ref('morpho_base_base_supply'),
+    ref('pike_base_base_supply')
   ]
 %}
 

@@ -151,73 +151,6 @@ models:
         name: fills_within
         description: "fills in the multihop, if present"
 
-  - name: zeroex_ethereum_nft_fills
-    meta:
-      blockchain: ethereum
-      project: zeroex
-      contributors: bakabhai993, danning.sui
-    config:
-      tags: ['ethereum','0x','nft']
-    description: >
-        NFT Swaps enabled by 0x exchange contracts
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - block_date
-            - tx_hash
-            - evt_index
-      - check_seed:
-          seed_file: ref('zeroex_ethereum_nft_fills_sample')
-          match_columns:
-            - block_date
-            - tx_hash
-            - evt_index
-          check_columns:
-            - maker
-            - taker
-            - nft_id
-            - nft_address
-    columns:
-      - *block_time
-      - *block_date
-      - *evt_index
-      - *tx_hash
-      - *maker
-      - *taker
-      - &matcher
-        name: matcher
-        description: "Address/bot that brings two public quotes (from buy as well as from the sell side) together"
-      - &nft_address
-        name: nft_address
-        description: "NFT project address"
-      - &nft_id
-        name: nft_id
-        description: "Token ID of the NFT project address"
-      - &label
-        name: label
-        description: "Type of NFT - ERC 721 OR ERC 1155"
-      - &price_label
-        name: price_label
-        description: "Token address used to generate the amount in USD - for ETH, we take the price of WETH"
-      - &token
-        name: token
-        description: "Token used to pay for the transaction"
-      - &token_amount_raw
-        name: token_amount_raw
-        description: "Raw token amount used to pay for the transaction"
-      - &symbol
-        name: symbol
-        description: "Symbol of the token used to pay for the transaction - use this column for all your descriptive needs + aggregations"
-      - &price_usd
-        name: price_usd
-        description: "Price of a transaction in USD"
-      - &token_amount
-        name: token_amount
-        description: "Token amount, after dividing by the correct decimal"
-      - &project_name
-        name: project_name
-        description: "Name of the NFT project"
-
   - name: zeroex_ethereum_native_fills 
     meta:
       blockchain: ethereum
@@ -289,14 +222,6 @@ models:
             - block_date
             - tx_hash
             - evt_index
-      - check_seed:
-          seed_file: ref('zeroex_ethereum_settler_trades_sample')
-          match_columns:
-            - tx_hash
-          check_columns:
-            - taker
-            - maker_token
-            - taker_token
     columns:
       - *blockchain
       - *block_date
@@ -323,3 +248,30 @@ models:
       - *swap_flag
       - *contract_address
       - *fills_within
+
+  - name: zeroex_ethereum_settler_addresses
+    meta:
+      blockchain: ethereum
+      project: zeroex
+      contributors: hosuke
+    config:
+      tags: ['ethereum', '0x', 'settler']
+    description: >
+      0x Protocol settler addresses for Ethereum blockchain.
+      This table contains the settler addresses used by the 0x Protocol on Ethereum,
+      along with their activation timestamps and token IDs.
+    columns:
+      - name: tx_hash
+        description: "Transaction hash where the settler address was registered"
+      - name: settler_address
+        description: "Address of the 0x Protocol settler contract"
+      - name: token_id
+        description: "Token ID associated with the settler address"
+      - name: begin_block_time
+        description: "Block time when the settler address was activated"
+      - name: begin_block_number
+        description: "Block number when the settler address was activated"
+      - name: end_block_time
+        description: "Block time when the settler address was deactivated (null if still active)"
+      - name: end_block_number
+        description: "Block number when the settler address was deactivated (null if still active)"

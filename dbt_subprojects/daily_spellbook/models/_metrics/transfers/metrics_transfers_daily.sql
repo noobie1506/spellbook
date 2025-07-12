@@ -6,25 +6,47 @@
 }}
 
 {% set chains = [
-     'arbitrum'
+     'abstract'
+    , 'apechain'
+    , 'arbitrum'
     , 'avalanche_c'
+    , 'b3'
     , 'base'
+    , 'berachain'
     , 'bitcoin'
     , 'blast'
     , 'bnb'
+    , 'bob'
+    , 'boba'
     , 'celo'
+    , 'corn'
+    , 'degen'
     , 'ethereum'
     , 'fantom'
+    , 'flare'
     , 'gnosis'
+    , 'ink'
+    , 'kaia'
+    , 'lens'
     , 'linea'
     , 'mantle'
+    , 'nova'
+    , 'opbnb'
     , 'optimism'
+    , 'plume'
     , 'polygon'
     , 'ronin'
     , 'scroll'
     , 'sei'
+    , 'shape'
     , 'solana'
+    , 'sonic'
+    , 'sophon'
+    , 'ton'
     , 'tron'
+    , 'unichain'
+    , 'worldchain'
+    , 'xrpl'
     , 'zkevm'
     , 'zksync'
     , 'zora'
@@ -36,9 +58,6 @@ FROM (
         SELECT
         blockchain
         , block_date
-        , transfer_amount_usd_sent
-        , transfer_amount_usd_received
-        , transfer_amount_usd
         , net_transfer_amount_usd
         FROM {{ ref('metrics_' + blockchain + '_transfers_daily') }}
         {% if not loop.last %}

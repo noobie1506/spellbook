@@ -20,8 +20,9 @@ with
         SELECT
         *
         FROM (
-            --use this api https://station.jup.ag/api-v6/get-program-id-to-label
+            --use this api https://api.jup.ag/swap/v1/program-id-to-label
             values
+                ('Perena', 'NUMERUNsFCP3kuNmWZuXtm1AaQCPj9uw6Guv2Ekoi5P'),
                 ('stabble Stable Swap', 'swapNyd8XiQwJ6ianp9snpu4brUqFxadzvHebnAXjJZ'),
                 ('stabble Weighted Swap', 'swapFpHZwjELNnjvThjajtiVmkz3yPQEHjLtka2fwHW'),
                 ('Invariant', 'HyaB3W9q6XdA5xwpU4XnSZV94htfmbmqJXZcEbRaJutt'),
@@ -71,7 +72,11 @@ with
                 ('1DEX', 'DEXYosS6oEGvk8uCDayvwEZz4qEyDJRf9nFgYCaqPMTm'),
                 ('Obric V2', 'obriQD1zbpyLz95G5n7nJe6a4DPjpFwa5XYPoNm113y'),
                 ('Mooshot', 'MoonCVVNZFSYkqNXP6bxHLPL6QQJiMagDL3qcqUQTrG'),
-                ('Fox', 'HyhpEq587ANShDdbx1mP4dTmDZC44CXWft29oYQXDb53')
+                ('Fox', 'HyhpEq587ANShDdbx1mP4dTmDZC44CXWft29oYQXDb53'),
+                ('Solayer', 'endoLNCKTqDn8gSVnN2hDdpgACUPWHZTwoYnnMybpAT'),
+                ('Token Mill', 'JoeaRXgtME3jAoz5WuFXGEndfv4NPH9nBxsLq44hk9J'),
+                ('Daos.fun', '5jnapfrAN47UYkLkEf7HnprPPBCQLvkYWGZDeKkaP5hv'),
+                ('ZeroFi', 'ZERor4xhbUycZ6gb9ntrhqscUcZmAbQDjEAtCf4hbZY')
             ) as v(amm_name, amm)
     )
 
@@ -128,7 +133,18 @@ with
             a.amm_name
             , toBase58(bytearray_substring(data,1+16,32)) as amm
             , toBase58(bytearray_substring(data,1+48,32)) as input_mint
-            , bytearray_to_bigint(bytearray_reverse(bytearray_substring(data,1+80,8))) as input_amount
+            , CASE 
+                -- Apply the 4-byte fix for 1DEX AMM after August 23rd, 2024
+                -- 1DEX AMM uses the trailing 4 bytes for other msging, they are unique in that
+                -- all other dexes use the full 8 bytes
+                WHEN a.amm = 'DEXYosS6oEGvk8uCDayvwEZz4qEyDJRf9nFgYCaqPMTm' 
+                    AND l.block_time >= TIMESTAMP '2024-08-23 00:00:00' 
+                    THEN 
+                    bytearray_to_bigint(bytearray_reverse(bytearray_substring(data,1+80,4)))
+                -- Keep the original 8-byte parsing for all other AMMs
+                ELSE 
+                    bytearray_to_bigint(bytearray_reverse(bytearray_substring(data,1+80,8)))
+            END as input_amount
             , toBase58(bytearray_substring(data,1+88,32)) as output_mint
             , bytearray_to_bigint(bytearray_reverse(bytearray_substring(data,1+120,8))) as output_amount
             , log_index
@@ -183,8 +199,8 @@ FROM (
     SELECT * FROM jup6_logs
 ) l
 --tokens
-LEFT JOIN {{ ref('tokens_solana_fungible') }} tk_1 ON tk_1.token_mint_address = l.input_mint
-LEFT JOIN {{ ref('tokens_solana_fungible') }} tk_2 ON tk_2.token_mint_address = l.output_mint
+LEFT JOIN {{ source('tokens_solana','fungible') }} tk_1 ON tk_1.token_mint_address = l.input_mint
+LEFT JOIN {{ source('tokens_solana','fungible') }} tk_2 ON tk_2.token_mint_address = l.output_mint
 LEFT JOIN {{ source('prices','usd_forward_fill') }} p_1 ON p_1.blockchain = 'solana'
     AND date_trunc('minute', l.block_time) = p_1.minute
     AND l.input_mint = toBase58(p_1.contract_address)

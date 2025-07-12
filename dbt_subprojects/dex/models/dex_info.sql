@@ -2,7 +2,7 @@
         tags = [ 'static'],
         schema='dex',
         alias = 'info',
-        post_hook='{{ expose_spells(\'["ethereum", "polygon", "bnb", "avalanche_c", "gnosis", "fantom", "optimism", "arbitrum", "celo", "base", "solana", "zksync"]\',
+        post_hook='{{ expose_spells(\'["ethereum", "polygon", "bnb", "avalanche_c", "gnosis", "fantom", "optimism", "arbitrum", "celo", "base", "solana", "zksync", "boba"]\',
                                     "sector",
                                     "dex",
                                     \'["hildobby"]\') }}')
@@ -10,7 +10,7 @@
 
 SELECT project, name, marketplace_type, x_username
 FROM (VALUES
-    	('uniswap', 'Uniswap', 'Direct', 'Uniswap')
+    ('uniswap', 'Uniswap', 'Direct', 'Uniswap')
     , ('pancakeswap', 'PancakeSwap', 'Direct', 'PancakeSwap')
     , ('curve', 'Curve', 'Direct', 'CurveFinance')
     , ('sushiswap', 'SushiSwap', 'Direct', 'SushiSwap')
@@ -177,14 +177,16 @@ FROM (VALUES
     , ('dfyn', 'DFYN Network', 'Direct', '_DFyn')
     , ('swapblast', 'SwapBlast', 'Direct', 'SwapBlast')
     , ('yoshiexchange', 'Yoshi Exchange', 'Direct', 'YoshiExchange')
-    , ('dyorswap', 'DyorSwap', 'Direct', 'DYORSWAP')
+    , ('dyorswap', 'DyorSwap', 'Direct', 'DYORSWAPDEX')
     , ('punkswap', 'PunkSwap', 'Direct', 'PunkSwapDEX')
     , ('yaka', 'yaka', 'Direct', 'YakaFinance')
     , ('klay_swap', 'KLAYswap', 'Direct', 'KLAYswap')
     , ('neopin', 'neopin', 'Direct', 'NeopinOfficial')
+    , ('otsea', 'OTSea', 'Direct', 'otseaERC20')
     , ('kaia_swap', 'KaiaSwap', 'Direct', 'KaiaSwap')
     , ('defi_kingdoms', 'DeFi Kingdoms', 'Direct', 'DeFiKingdoms')
     , ('hyperjump', 'HyperJump', 'Direct', 'Hyperjump_fi')
+    , ('timeswap', 'Timeswap', 'Direct', 'TimeswapLabs')
     , ('infusion', 'Infusion', 'Direct', 'infusionfinance')
     , ('stablebase', 'StableBase', 'Direct', 'stablebasefi')
     , ('flashliquidity', 'Flashliquidity', 'Direct', 'flashliquidity')
@@ -194,6 +196,30 @@ FROM (VALUES
     , ('jetswap', 'JetSwap', 'Direct', 'Jetfuelfinance')
     , ('bridgers', 'Bridgers', 'Direct', 'Bridgersxyz')
     , ('levinswap', 'Levinswap', 'Direct', 'levinswap')
+    , ('sparkdex', 'SparkDEX', 'Direct', 'SparkDexAI')
+    , ('blazeswap', 'BlazeSwap', 'Direct', 'blazeswapdex')
+    , ('enosys', 'Enosys', 'Direct', 'enosys_global')
     , ('gravity_finance', 'GravityFinance', 'Direct', 'Gravity_Finance')
     , ('fluid', 'Fluid DEX', 'Direct', '0xfluid')
-    ) AS temp_table (project, name, marketplace_type, x_username)
+    , ('jojo', 'JOJO', 'Direct', 'jojo_exchange')
+    , ('beets', 'Beets DEX', 'Direct', 'beets_fi')
+    , ('silverswap', 'SilverSwap', 'Direct', 'SilverSwapDex')
+    , ('shadow', 'Shadow', 'Direct', 'ShadowOnSonic')
+    , ('kodiak', 'Kodiak', 'Direct', 'KodiakFi')
+    , ('unichainswap', 'UnichainSwap', 'Direct', 'unichainswap')
+    , ('beraswap', 'BeraSwap', 'Direct', 'BeraSwap')
+    , ('burrbear', 'BurrBear', 'Direct', 'moneygoesburr')
+    , ('reservoir_swap', 'Reservoir Swap', 'Direct', 'reservoir0x')
+    , ('inkyswap', 'InkySwap', 'Direct', 'inkyswap')
+    , ('squidswap', 'SquidSwap', 'Direct', 'squidswap_ink')
+    , ('swanswap', 'SwanSwap', 'Direct', 'swan_swap')
+    , ('inkswap', 'InkSwap', 'Direct', 'inswap_')
+    , ('sailor_finance', 'SailorFinance', 'Direct', 'SailorFi')
+    , ('gooddollar_reserve', 'GoodDollar Reserve', 'Direct', 'gooddollar_reserve')
+    , ('abstractswap', 'Abstract Swap', 'Direct', 'AbstractChain')
+    , ('tamadotmeme', 'tamadotmeme', 'Direct', 'tamadotmeme') 
+    , ('tapio', 'Tapio', 'Direct', 'Tapio')
+    , ('rooster_protocol', 'Rooster Protocol', 'Direct', 'roosterprotocol')
+    , ('mindgames', 'Mindgames', 'Direct', 'mindgames_io')
+    , ('yeiswap', 'YeiSwap', 'Direct', 'YeiFinance')
+) AS temp_table (project, name, marketplace_type, x_username)

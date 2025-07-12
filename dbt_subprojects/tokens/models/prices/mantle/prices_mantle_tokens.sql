@@ -16,7 +16,6 @@ SELECT
 FROM
 (
     VALUES
-    ('mnt-mantle', 'mantle', 'MNT', 0xdeaddeaddeaddeaddeaddeaddeaddeaddead0000, 18),
     ('mnt-mantle', 'mantle', 'WMNT', 0x78c1b0c915c4faa5fffa6cabf0219da63d7f4cb8, 18),
     ('joe-trader-joe', 'mantle', 'JOE', 0x371c7ec6d8039ff7933a2aa28eb827ffe1f52f07, 18),
     ('usdc-usd-coin', 'mantle', 'USDC', 0x09bc4e0d864854c6afb6eb9a9cdf58ac190d0df9, 6),
@@ -31,5 +30,9 @@ FROM
     ('puff-puff-token', 'mantle', 'PUFF', 0x26a6b0dcdcfb981362afa56d581e4a7dba3be140, 18),
     ('moe-merchant-moe', 'mantle', 'MOE', 0x4515A45337F461A11Ff0FE8aBF3c606AE5dC00c9, 18),
     ('usdy-ondo-us-dollar-yield', 'mantle', 'USDY', 0x5bE26527e817998A7206475496fDE1E68957c5A6, 18),
-    ('svl-slash-vision-labs', 'mantle', 'SVL', 0xabbeed1d173541e0546b38b1c0394975be200000, 18)
+    ('svl-slash-vision-labs', 'mantle', 'SVL', 0xabbeed1d173541e0546b38b1c0394975be200000, 18),
+    ('fbtc-ignition-fbtc', 'mantle', 'FBTC', 0xc96de26018a54d51c097160568752c4e3bd6c364, 8),
+    ('cook-meth-protocol', 'mantle', 'COOK', 0x9f0c013016e8656bc256f948cd4b79ab25c7b94d, 18),
+    ('ausd-agora-dollar', 'mantle', 'AUSD', 0x00000000efe302beaa2b3e6e1b18d08d69a9012a, 6),
+    ('ausd-aurelius-usd', 'mantle', 'aUSD', 0xd2b4c9b0d70e3da1fbdd98f469bd02e77e12fc79, 18)
 ) as temp (token_id, blockchain, symbol, contract_address, decimals)

@@ -15,6 +15,7 @@ FROM (VALUES
 
     ('ethereum', 0x68749665FF8D2d112Fa859AA293F07A622782F38, 'Gold-backed', 'XAUT', 6, 'Tether'),
     ('ethereum', 0x45804880de22913dafe09f4980848ece6ecbaf78, 'Gold-backed', 'PAXG', 18, 'Paxos'),
+    ('ethereum', 0x2103e845c5e135493bb6c2a4f0b8651956ea8682, 'Gold-backed', 'XAUM', 18, 'Matrixdock'),
     ('ethereum', 0x136471a34f6ef19fe571effc1ca711fdb8e49f2b, 'Treasury-backed', 'USYC', 6, 'Hashnote'),
     ('ethereum', 0x1b19c19393e2d034d8ff31ff34c81252fcbbee92, 'Treasury-backed', 'OUSG', 18, 'Ondo'),
     ('ethereum', 0x7712c34205737192402172409a8F7ccef8aA2AEc, 'Treasury-backed', 'BUIDL', 6, 'Blackrock'),
@@ -30,7 +31,10 @@ FROM (VALUES
     ('ethereum', 0xe4A6f23Fb9e00Fca037Aa0EA0a6954dE0a6C53bF, 'Gold-backed', 'TXAU', 18, 'Aurus'),
     ('ethereum', 0x34ABce75D2f8f33940c721dCA0f562617787bfF3, 'Silver-backed', 'TXAG', 18, 'Aurus'),
     ('ethereum', 0x6d57B2E05F26C26b549231c866bdd39779e4a488, 'Gold-backed', 'VNXAU', 18, 'VNX'),
-    ('ethereum', 0x19b22DbADc298c359A1D1b59e35f352A2b40E33c, 'Platinum-backed', 'TXPT', 18, 'Aurus')
+    ('ethereum', 0x19b22DbADc298c359A1D1b59e35f352A2b40E33c, 'Platinum-backed', 'TXPT', 18, 'Aurus'),
+    ('ethereum', 0xC139190F447e929f090Edeb554D95AbB8b18aC1C, 'Treasury-backed', 'USDtb', 18, 'Ethena'),
+    ('ethereum', 0x35D8949372D46B7a3D5A56006AE77B215fc69bC0, 'Treasury-backed', 'USD0++', 18, 'Usual')
+    
 
 
     ) AS temp_table (blockchain, contract_address, backing, symbol, decimals, name)

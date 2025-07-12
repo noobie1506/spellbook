@@ -33,7 +33,10 @@ class TokenChecker:
                             "ronin": "ron-ronin-token",
                             "cardano": "ada-cardano",
                             "tron": "trx-tron",
-                            "boba": "eth-ethereum"
+                            "boba": "eth-ethereum",
+                            "shape": "eth-ethereum",
+                            "superseed": "eth-ethereum",
+                            "taiko": "eth-ethereum"
                             }
         self.tokens_by_id = self.get_tokens()
         self.contracts_by_chain = self.get_contracts()

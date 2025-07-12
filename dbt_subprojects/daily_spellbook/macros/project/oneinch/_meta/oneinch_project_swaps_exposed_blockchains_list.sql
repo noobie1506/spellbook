@@ -10,5 +10,8 @@
         'fantom', 
         'base',
         'zksync',
+        'linea',
+        'sonic',
+        'unichain',
     ]) }}
 {% endmacro %}

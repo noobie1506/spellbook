@@ -23,6 +23,7 @@
     ,ref('tokenlon_trades')
     ,ref('oneinch_ar_trades')
     ,ref('odos_trades')
+    ,ref('sushiswap_agg_trades')
 ] %}
 
 WITH enriched_aggregator_base_trades AS (
@@ -65,7 +66,8 @@ WITH enriched_aggregator_base_trades AS (
     FROM
         {{ model }}
     {% if is_incremental() %}
-    WHERE {{ incremental_predicate('block_time') }}
+    WHERE 
+        {{ incremental_predicate('block_time') }}
     {% endif %}
     {% if not loop.last %}
     UNION ALL

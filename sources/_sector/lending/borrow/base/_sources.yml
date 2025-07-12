@@ -75,3 +75,15 @@ sources:
       - name: LendingPool_evt_Borrow
       - name: LendingPool_evt_Repay
       - name: LendingPool_evt_LiquidationCall
+
+  - name: morpho_blue_base
+    tables:
+      - name: MorphoBlue_evt_CreateMarket
+      - name: MorphoBlue_evt_Borrow
+      - name: MorphoBlue_evt_Repay
+      - name: MorphoBlue_evt_Liquidate
+
+  - name: pike_base
+    tables:
+      - name: ptoken_evt_borrow
+      - name: ptoken_evt_repayborrow

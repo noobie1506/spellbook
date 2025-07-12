@@ -87,7 +87,7 @@ with
             evt_tx_hash,
             value as fee_token_amount,
             contract_address as fee_token_address
-        from {{ source('erc20_arbitrum', 'evt_transfer') }}
+        from {{ source('erc20_arbitrum', 'evt_Transfer') }}
         where
             (to = {{ fee_recipient_1 }} or to = {{ fee_recipient_2 }})
             and evt_block_time >= timestamp '{{project_start_date}}'
@@ -115,7 +115,7 @@ with
 select distinct
     block_time,
     date_trunc('day', block_time) as block_date,
-    date_trunc('month', block_time) as block_month,
+    cast(date_trunc('month', block_time) as date) as block_month,
     '{{blockchain}}' as blockchain,
     -- Trade
     amount_usd,

@@ -56,7 +56,7 @@ with
             if(feetokentype = 'SOL', 'SOL', symbol) as fee_token_symbol,
             fee_token_mint_address as fee_token_address,
             project,
-            version,
+            trades.version,
             token_pair,
             project_program_id as project_contract_address,
             trader_id as user,
@@ -64,7 +64,7 @@ with
             tx_index,
             outer_instruction_index,
             inner_instruction_index
-        from {{ ref('dex_solana_trades') }} as trades
+        from {{ source('dex_solana', 'trades') }} as trades
         join all_fee_payments on trades.tx_id = all_fee_payments.tx_id
         left join
             {{ source('prices', 'usd') }} as feetokenprices

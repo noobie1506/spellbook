@@ -23,10 +23,16 @@ vars:
   DBT_ENV_INCREMENTAL_TIME_UNIT: "{{ env_var('DBT_ENV_INCREMENTAL_TIME_UNIT', 'day') }}"
   ETH_ERC20_ADDRESS: '0x0000000000000000000000000000000000000000'
 
+# Configuring tests
+# Full documentation: https://docs.getdbt.com/reference/test-configs
+data_tests:
+  tokens:
+    +store_failures: true  # store failures for all tests
+
 # These configurations specify where dbt should look for different types of files.
 # You don't need to change these!
 model-paths: ["models", "../../sources"]
-# test-paths: ["tests"]
+test-paths: ["tests"]
 # seed-paths: ["seeds"]
 macro-paths: ["macros", "../../dbt_macros"]
 

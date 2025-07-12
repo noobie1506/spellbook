@@ -14,11 +14,15 @@
                                         , "boba"
                                         , "cardano"
                                         , "celo"
+                                        , "corn"
+                                        , "degen"
                                         , "ethereum"
                                         , "fantom"
                                         , "flare"
                                         , "gnosis"
+                                        , "ink"
                                         , "kaia"
+                                        , "katana"
                                         , "linea"
                                         , "nova"
                                         , "optimism"
@@ -26,18 +30,30 @@
                                         , "ronin"
                                         , "scroll"
                                         , "sei"
+                                        , "shape"
                                         , "solana"
+                                        , "sonic"
+                                        , "sophon"
+                                        , "superseed"
+                                        , "opbnb"
+                                        , "taiko"
+                                        , "unichain"
                                         , "viction"
                                         , "worldchain"
                                         , "zksync"
                                         , "zkevm"
                                         , "zora"
+                                        , "abstract"
+                                        , "lens"
+                                        , "plume"
                                     ]\',
                                     "sector",
                                     "prices",
                                     \'["aalan3", "jeff-dude", "umer_h_adil", "0xBoxer", "rantum", "lgingerich", "hildobby", "cryptokoryo", "0xRob", "hosuke", "Henrystats"]\') }}'
         )
 }}
+
+-- stamp 1
 
 {% set prices_models = [
 ref('prices_native_tokens')
@@ -70,6 +86,22 @@ ref('prices_native_tokens')
 ,ref('prices_ronin_tokens')
 ,ref('prices_boba_tokens')
 ,ref('prices_viction_tokens')
+,ref('prices_corn_tokens')
+,ref('prices_sonic_tokens')
+,ref('prices_ink_tokens')
+,ref('prices_sophon_tokens')
+,ref('prices_opbnb_tokens')
+,ref('prices_taiko_tokens')
+,ref('prices_unichain_tokens')
+,ref('prices_abstract_tokens')
+,ref('prices_berachain_tokens')
+,ref('prices_apechain_tokens')
+,ref('prices_shape_tokens')
+,ref('prices_degen_tokens')
+,ref('prices_lens_tokens')
+,ref('prices_plume_tokens')
+,ref('prices_katana_tokens')
+,ref('prices_superseed_tokens')
 ] %}
 
 

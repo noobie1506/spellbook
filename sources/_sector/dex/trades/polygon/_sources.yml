@@ -2,6 +2,11 @@ version: 2
 
 
 sources:
+  - name: uniswap_v4_polygon
+    tables:
+      - name: PoolManager_evt_Swap
+      - name: PoolManager_evt_Initialize
+      - name: PoolManager_call_Swap
   - name: uniswap_v3_polygon
   - name: airswap_polygon
     tables:
@@ -83,3 +88,7 @@ sources:
     tables:
       - name: UniswapV2Pair_evt_Swap
       - name: UniswapV2Factory_evt_PairCreated
+  - name: fluid_polygon
+    tables: 
+      - name: FluidDexT1_evt_Swap
+      - name: fluiddexfactory_call_deploydex

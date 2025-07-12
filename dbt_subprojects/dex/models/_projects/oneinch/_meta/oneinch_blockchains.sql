@@ -21,6 +21,9 @@
         'zksync',
         'aurora',
         'klaytn',
+        'linea',
+        'sonic',
+        'unichain',
     ]
 %}
 

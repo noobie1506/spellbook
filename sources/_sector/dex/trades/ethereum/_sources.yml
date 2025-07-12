@@ -1,6 +1,11 @@
 version: 2
 
 sources:
+  - name: uniswap_v4_ethereum
+    tables:
+      - name: PoolManager_evt_Swap
+      - name: PoolManager_evt_Initialize
+      - name: PoolManager_call_Swap
   - name: defiswap_ethereum
   - name: uniswap_ethereum
   - name: uniswap_v2_ethereum
@@ -132,3 +137,6 @@ sources:
   - name: fluid_ethereum
     tables: 
       - name: FluidDexT1_evt_Swap
+  - name: pancakeswap_ethereum
+    tables:
+      - name: ExclusiveDutchOrderReactor_evt_Fill
